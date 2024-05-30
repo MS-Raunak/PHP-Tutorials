@@ -12,22 +12,15 @@
         - Php is not a case sensitive language
         - echo is used to print value
      -->
-     
-    <?php  echo"hello world!!";
+    <?php 
+         echo "hello world!!";
     ?>
-    <h1>
-        <?php 
-            echo"Hello I am PHP" 
-        ?>
-    </h1>
-
-    
-        <!-- 
+     <!-- 
             Variable: 
             Syntax $Variable varName;
             php is dynamically typed programming language.
             putting semicolon is mandatory after completing the statement
-        -->
+     -->
 
     <?php
 
@@ -38,11 +31,95 @@
 
     $sum = $Variable1 + $Variable2 + $a;
 
-    echo $Variable1;
-    echo $Variable2;
-    echo $a;
+    echo $Variable1; 
+    echo"<br>"; //newLine
 
-    echo "Sum of $Variable1 + $Variable2 + $a =  $sum";  //Concatination
+    echo $Variable2;  
+    echo"<br>";
+
+    echo $a;           
+    echo"<br>";
+    ?>
+
+    <!-- Operators in Php -->
+    <?php
+        echo "<br><h2>Operator</h2>";
+        // Aritmetic Opertaor
+        echo "Sum of $Variable1 + $Variable2 + $a =  $sum";  //Concatination
+       
+        // Assignment Opertaor
+        $var1 = 20;
+        $newVar = $var1;
+        $newVar+=1;
+        echo "<br> Value of new variable is $newVar";
+
+        // Comperator Opertaor
+        echo "1==4";
+        echo var_dump(1==4);
+        echo "<br>";
+
+        echo "1<4";
+        echo  var_dump(1<4);
+        echo "<br>";
+
+        echo "1>4";
+        echo var_dump(1>4);
+        echo "<br>";
+
+        echo"1<=4";
+        echo var_dump(1<=4);
+        echo "<br>";
+
+        echo"1>=4";
+        echo var_dump(1>=4);
+        echo "<br>";
+
+        // Increment/Decrement Opertaor
+        $Variable = 4;
+        echo $Variable; //4
+        echo "<br>";
+
+    
+        echo $Variable++; //4
+        echo "<br>";
+ 
+        echo $Variable--; //5
+        echo "<br>";
+ 
+        echo --$Variable; //3
+        echo "<br>";
+
+        echo ++$Variable; //4
+        echo "<br>";
+
+        // Logical Opertaor
+        // and(&&), or (||),xor, (!)
+
+        $myAge = 25;
+
+        echo var_dump($myAge > 10 and $myAge < 30); //true
+        echo"<br>";
+        echo var_dump($myAge > 5 && $myAge <= 10 ); //false
+        echo"<br>";
+
+        echo var_dump($myAge > 10 or $myAge < 20); //true
+        echo"<br>";
+        echo var_dump($myAge > 10 || $myAge < 20); //true
+        echo"<br>";
+
+        echo var_dump($myAge!=10);//true
+        echo"<br>";
+
+        //xor: if both operands are different the return true otherwise false
+        echo var_dump(true xor true);//false
+        echo"<br>";
+        echo var_dump(false xor false);//false
+        echo"<br>";
+        echo var_dump(true xor false);//true
+        echo"<br>";
+
+
+
     ?>
 </body>
 </html>
