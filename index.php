@@ -117,9 +117,38 @@
         echo"<br>";
         echo var_dump(true xor false);//true
         echo"<br>";
+    ?>
 
+    <!-- Data Types in Php -->
+    <?php
+        echo "<h2>Data Types in Php</h2>";
+        // 1.String
+        $varStr = "This is string";
+        echo var_dump($varStr);
+        echo "<br>";
 
+        // 2.Integer
+        $varInteger = 20;
+        echo var_dump($varInteger);
+        echo "<br>";
 
+        // 3.Float
+        $varFloat = 20.2;
+        echo var_dump($varFloat);
+        echo"<br>";
+
+        // 4.Boolean
+        $varBoolean = true;
+        echo var_dump($varBoolean);
+        echo"<br>";
+
+        // 5.Array
+        $varArray = [10,20,30];
+        echo var_dump($varArray);
+        echo"<br>";
+
+        // 6.Object
+       
     ?>
 </body>
 </html>
