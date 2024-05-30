@@ -148,7 +148,12 @@
         echo"<br>";
 
         // 6.Object
-       
+    ?>
+
+    <!-- Constant Value -->
+    <?php
+        define("PI", 3.14);
+        echo "PI"; //3.14
     ?>
 </body>
 </html>
