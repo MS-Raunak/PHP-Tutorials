@@ -43,16 +43,31 @@
 
            // 2.for loop
            for($i=0; $i<=5; $i++) {
-            echo "$i ";
+            //echo "$i ";
            }
 
            //3.do-while loop
            $j=10;
            do{
-            echo "<br> value of j: $j";
+           // echo "<br> value of j: $j";
            }while($j<10);
             
-           
+        //Array: Accepts Hetrogeneous values
+        
+         $arr = array(10,20,30, "php", "java");
+         //echo "<br>element $arr[0] present on 0th index<br>";
+         //echo "Total elements in array: ";
+         //echo count($arr); //size of array
+         echo "Array iteration using tradional for loop";
+         for($i=0; $i<count($arr); $i++) {
+            echo "<br>arr[$i]: $arr[$i]";
+         }
+         //forEach loop with array
+         echo "<br>Array iteration using enhanced foreach loop";
+         foreach($arr as $value){
+            echo "<br>value of arr: $value";
+         }
+
         ?>
     </div>
 </body>
