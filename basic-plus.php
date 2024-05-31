@@ -13,8 +13,9 @@
         .container {
             max-width:80%;
             margin: auto;
-            background: grey;
+            background: #0001;
             padding:20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -26,11 +27,32 @@
         <?php
             $age =15;
             if($age >= 18)
-                echo "You can go to the party!!";
+                echo "You can go to the party!!<br>";
             else if($age==15)
-                echo "You go to the school!!";
+                echo "You go to the school!!<br>";
             else
-            echo "You can not go the party!!";
+            echo "You can not go the party!!<br>";
+
+            //Loops
+            //1. while loop
+            $idx=0;
+            while($idx <= 10){
+                //echo "<br> Value of i: $idx";
+                $idx++;
+            }
+
+           // 2.for loop
+           for($i=0; $i<=5; $i++) {
+            echo "$i ";
+           }
+
+           //3.do-while loop
+           $j=10;
+           do{
+            echo "<br> value of j: $j";
+           }while($j<10);
+            
+           
         ?>
     </div>
 </body>
