@@ -1,9 +1,8 @@
 <?php
-//    Variable
-    $var = 10;
-    $Var2 = 20;
-    
-    //Concatination
-    echo "Sum: ".$var + $Var2;
-
+    //Add new line
+    echo "List Of Name:";
+    echo "<br>";
+    echo "1.Chhaya<br>";
+    echo "2.Shanaya<br>";
+    echo "3.Jaa Babu";
 ?>
