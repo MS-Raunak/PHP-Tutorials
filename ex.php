@@ -2,7 +2,8 @@
 //    Variable
     $var = 10;
     $Var2 = 20;
-    //echo $var;
-    echo $var + $Var2;
+    
+    //Concatination
+    echo "Sum: ".$var + $Var2;
 
 ?>
