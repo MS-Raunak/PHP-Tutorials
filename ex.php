@@ -1,89 +1,94 @@
 <?php
     //###########ARRAY FUNCTIONS###############################
-    $idx_arr = [12,5,9,23,7,1];
-    $ass_arr = ["ram" => "sita", "mohan" => "radha", "arjun"=>"draupadi"];
+    echo "Special(Advanced Fun)<br>==================================<br>";
 
-    echo "ARRAY'S FUNCTIONS:<br>";
-    echo "indexed arr = [12,5,9,23,7,1]<br>";
-    echo "associated arr = ['ram' => 'sita', 'mohan' => 'radha', 'arjun'=>'draupadi']<br><br>";
+    echo "Map Function(Square Each Ele):<br>";
+    $arr = [1,2,3,4]; //find square of each elements
+    echo "arr = [1,2,3,4]<br>";
 
-    #Find Length Of Array
-    echo "Length Of Array: ".sizeof($idx_arr);
+    $sq_arr = array_map('square', $arr);
 
-    #Count elements from an Array
-    echo "<br>Total elements: ". count($idx_arr);
+    function square($ele){
+        return $ele*$ele;
+    }
+    echo "<pre>";
+    print_r($sq_arr);
+    echo "</pre>";
 
-    echo "<br><br>";
+    //array_map(): Mapping with Associated array
+    echo "<br>Mapping with Associated Array(convert in uppercase)<br>";
+    $colors = ['red','yellow','blue','green']; //convert in elements uppercase
+    
+    echo "colors = ['red','yellow','blue','green']<br>";
+    
+    $ucolor_arr = array_map('upper', $colors);
 
-    ###### Sorting Functions---------------->
-    echo "Sorting Functions:::====><br>";
+    function upper($ele){
+        return strtoupper($ele);
+    }
+    echo "<pre>";
+    print_r($ucolor_arr);
+    echo "</pre>";
 
-    #sort() - sort arrays in ascending order
-    echo "Ascending order sorting(Indexed Array): ";
-    sort($idx_arr);
+    #array_reduce(): reduce all elemenets of an array into single ele
+    echo "<br>Reduce all elemenets of an array into single ele<br>";
 
-    foreach($idx_arr as $ele)    
-            echo "$ele, ";
+    $colors = ['red','yellow','blue','green'];
+    echo "colors = ['red','yellow','blue','green']<br>";
 
-    #rsort() - sort arrays in descending order
-    echo "<br>Descending order sorting(Indexed Array): ";
-    rsort($idx_arr);
+    $reduced = array_reduce($colors, 'reduce');
+    function reduce($res, $ele) {
+        return "$res-$ele";
+    }
+    echo "Reduced ele: $reduced<br>";//-red-yellow-blue-green
 
-    foreach($idx_arr as $ele)    
-        echo "$ele, ";
+    //with one optional arg(holds intital val)
+    echo "<br>Reduce all elemenets with initial val(optional arg)<br>";
 
-    #asort() - sort associative arrays in ascending order, according to the value
-    echo "<br>Ascending order sorting(Associated Array a/c to val): ";
-    asort($ass_arr);
+    $colors = ['red','yellow','blue','green'];
+    echo "colors = ['red','yellow','blue','green']<br>";
 
-    foreach($ass_arr as $ele)    
-        echo "$ele, ";
+    $initial_val = 'white';
 
-    #arsort() - sort associative arrays in descending order, according to the value
-    echo "<br>Descending order sorting(Associated Array a/c to val): ";
-    arsort($ass_arr);
+    $reduced = array_reduce($colors, 'reduce1', $initial_val);
+    function reduce1($res, $ele) {
+        return "$res-$ele";
+    }
+    echo "Reduced ele: $reduced<br>";//white-red-yellow-blue-green
 
-    foreach($ass_arr as $ele)    
-        echo "$ele, ";
 
-    #ksort() - sort associative arrays in ascending order, according to the key
-    echo "<br>Ascending order sorting(Associated Array a/c to key): ";
-    ksort($ass_arr);
 
-    foreach($ass_arr as $ele)    
-        echo "$ele, ";
+    #array_filter(): filter elemenets of an array based on specific condition
+    echo "<br>Filter Even Numbers From An Array:<br>";
 
-    #krsort() - sort associative arrays in descending order, according to the key
-    echo "<br>Descending order sorting(Associated Array a/c to key): ";
-    krsort($ass_arr);
+    $numbers = [1,2,3,4,5,6];
+    $even_nums = array_filter($arr, 'isEven');
 
-    foreach($ass_arr as $ele)    
-        echo "$ele, ";
+    function isEven($num) {
+        return $num%2==0;
+    }
 
-    #count(): Returns the number of elements in an array.
-    echo "<br><br>NO of elements in indexed array: ". count($idx_arr);
+    echo "<pre>";
+    print_r($even_nums);
+    echo "</pre>";
 
-    #array_push(): Pushes one or more elements onto the end of an array.
-    echo "<br>Adding 2 elements onto the end of indexed arr:<br>";
-    array_push($idx_arr, 17,11);
-    print_r($idx_arr);
 
-    #array_pop(): Removes and returns the last element of an array.
-    echo "<br>Removing 1 element onto the end of indexed arr:<br>";
-    array_pop($idx_arr);
-    print_r($idx_arr);
+    #array_replace(): Replace elements of an array with elements of another array
+    echo "<br>Replace elements of an array with elements of another array:<br>";
+    $numbers = [1,2,3,4,5,6];
+    $colors = ['red','yellow','blue','green'];
 
-    #array_shift(): Removes and returns the first element of an array.
-    echo "<br>Removing first element of an indexed arr:<br>";
-    $rem_ele = array_shift($idx_arr);
-    echo "Removed ele: $rem_ele";
+    $replaced_arr = array_replace($numbers, $colors);
+    echo "<pre>";
+    print_r($replaced_arr);
+    echo "</pre>";
 
-    #array_unshift(): Adds one or more elements to the beginning of an array.
-    echo "<br>Adding 2 elements onto the beginning of indexed arr:<br>";
-    array_unshift($idx_arr, 111,222);
-    print_r($idx_arr);
 
+   
     #array_merge(): Merges one or more arrays into one array.
+    $idx_arr = [1,2,3];
+    $ass_arr = ["a","b"];
+
     echo "<br>Merge 2 Array:<br>";
     $merged_Arr = array_merge($idx_arr, $ass_arr);
     print_r($merged_Arr);
@@ -116,53 +121,6 @@
     print_r($sliced_fruits);// [apple,banana]
     echo "</pre>";
 
-    #array_key_exists(): Checks if the given key or index exists in the array.
-    echo "<br><br>Check key exits or not in below array:<br>";
-    echo "fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange']<br>";
     
-    $fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange'];
-    $test = array_key_exists('three', $fruits); // 
-    echo "Key Available: $test";
-
-    #array_keys(): Returns all the keys or a subset of the keys of an array.
-    echo "<br><br>Display keys of below array:<br>";
-    echo "fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange']<br>";
-    
-    $fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange'];
-    $keys = array_keys($fruits); // 
-    print_r($keys);
-
-    #array_values(): Returns all the values of an array.
-    echo "<br><br>Display values of below array:<br>";
-    echo "fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange']<br>";
-    
-    $fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange'];
-    $values = array_values($fruits); // 
-    print_r($values);
-
-    #array_search(): Searches the array for a given value and returns the corresponding key if successful.
-    echo "<br><br>Searches the array for a given value(apple):<br>";
-    echo "fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange']<br>";
-    $fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange'];
-
-    $values = array_search( "apple", $fruits); // 
-    print_r($values);
-
-    #in_array(): Checks if a value exists in an array.
-    echo "<br><br>Check given value(apple) exists or not in given the array:<br>";
-    echo "fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange']<br>";
-    $fruits = ['one' => 'apple', 'two' => 'banana', 'three' => 'orange'];
-
-    $test = in_array( "apple", $fruits); // 
-    print_r($values);//one
-
-
-    #array_unique(): Removes duplicate values from an array.
-    echo "<br><br>Searches the array for a given value(apple):<br>";
-    echo "arr = [1,2,3,2,4,3,5,1]<br>";
-    $arr =  [1,2,3,2,4,3,5,1];
-
-    $unique_arr = array_unique($arr); // 
-    print_r($unique_arr); // 1,2,3,4,5
 
 ?>
