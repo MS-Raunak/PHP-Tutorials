@@ -92,17 +92,29 @@
     echo "<br><br>Extracts a slice of an array:<br>";
     echo "fruits = ['apple', 'banana', 'orange', 'mango', 'pineapple']<br>";
     $fruits = ["apple", "banana", "orange", "mango", "pineapple"];
-    $sliced_fruits = array_slice($fruits, 1,3); // Extract elements at index 1 (banana) and 3 (mango)
+    $sliced_fruits = array_slice($fruits, 1,3); // Extract 3 elements from index 1.
 
-    print_r($sliced_fruits);////banana, mango
+    echo"<pre>"; //For printing in good format
+    print_r($sliced_fruits);////banana,orange, mango
+    echo"</pre>";
 
     #array_splice(): Removes a portion of an array and replaces it with something else.
     echo "<br><br>Remove ele of an array:<br>";
     echo "fruits = ['apple', 'banana', 'orange', 'mango', 'pineapple']<br>";
     
     $fruits = ["apple", "banana", "orange", "mango", "pineapple"];
-    $spliced_fruits = array_splice($fruits, 0,2); // 
-    print_r($sliced_fruits);
+    $spliced_fruits = array_splice($fruits, 0,2); // remove 2 elements from index 0
+
+    echo "<pre>";
+    print_r($sliced_fruits);// [apple,banana]
+    echo "</pre>";
+    
+    $fruits = ["apple", "banana", "orange", "mango", "pineapple"];
+    $colors = ["red", "blue"];
+    $spliced_fruits = array_splice($fruits, 1,2, $colors); // remove 2 elements from index 0 and insert $colors
+    echo "<pre>";
+    print_r($sliced_fruits);// [apple,banana]
+    echo "</pre>";
 
     #array_key_exists(): Checks if the given key or index exists in the array.
     echo "<br><br>Check key exits or not in below array:<br>";
