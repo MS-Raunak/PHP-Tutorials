@@ -13,10 +13,15 @@
     //MESSAGE = "NO";//Cant reinittialize
 
     function m() {
-        echo self::MESSAGE . "<br>"; //accessing const variale inside the class, use self::varName
+        echo self::MESSAGE; //accessing const variale inside the class, use self::varName
     }
  }
 
  //To accessing constant variable outside the class, use ClassName::VarName
  echo Test::MESSAGE;
+ $test = new Test();
+
+ echo "<br>";
+
+ $test->m();
 ?>
