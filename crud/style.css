@@ -1,0 +1,97 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    width: 50%;
+    padding: 20px;
+    background-color: rgb(50, 107, 107);
+    margin: auto;
+}
+
+.container h2{
+    color: #fff;
+    text-align: center;
+}
+
+.container .form-container{
+    /* border: 2px solid red; */
+    width: 70%;
+    margin:auto;
+    padding: 7px;
+    
+}
+
+.container .form-container .input{
+    padding: 7px;
+    
+}
+
+.container .form-container .input label{
+    color: white;
+}
+
+.container .form-container .input input{
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    margin-top: 3px;
+    border: none;
+    outline: none;
+    color: black;
+    border-radius: 3px;
+}
+
+.container .form-container #btn{
+    background-color: rgb(59, 48, 127);
+    color: #fff;
+    width: 25%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+
+}
+
+.btn{
+    background-color: rgb(59, 48, 127);
+    padding: 5px;
+    width: 25%;
+    text-align: center;
+}
+
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+/* ##################### View Page ######################### */
+.view-container{
+    width: 70%;
+    padding: 20px;
+    background-color: rgb(50, 107, 107);
+    margin: auto;
+}
+
+.view-container h2{
+    color: #fff;
+    text-align: center;
+}
+
+.view-container .table-container{
+    text-align: center;
+    padding: 20px;
+}
+
+.view-container .table-container table {
+    border-color: white;   
+   color: #fff;
+    
+}

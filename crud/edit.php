@@ -1,49 +1,77 @@
 <?php 
-    include 'dbconnection.php'; 
-    //Getting id from update button
-    $id = $_GET['id'];
+    include "dbconnect.php";
+    //if($con) echo "OK";
+    $id =  $_GET['id'];
     //echo $id;
-    $query = "SELECT * FROM student WHERE id= '$id' ";
+    $query = "SELECT * FROM employee WHERE id= '$id'";
     $data = mysqli_query($con, $query);
-    $result = mysqli_fetch_array($data);
+
+   $result =  mysqli_fetch_array($data);
+   
+    //echo $result['ename'];
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update data</title>
+    <title>Update Data</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <form action="" method="POST">
-    <label>Student id</label>
-        <input type="number" value="<?php echo $result['id'] ?>" name="id" readOnly=true><br><br>
-        <label>First Name</label>
-        <input type="text" value="<?php echo $result['firstname'] ?>" name="firstname" placeholder="enter firstname"><br><br>
-        <label>Last Name</label>
-        <input type="text" value="<?php echo $result['lastname'] ?>" name="lastname" placeholder="enter lastname"><br><br>
-        <label>Age</label>
-        <input type="number" value="<?php echo $result['age'] ?>" name="age" placeholder="enter age"><br><br>
-        <input type="submit" name="update_btn" value="Update">
-        <button><a href="view.php">Back</a></button>
+<div class="container">
+        <h2>Update Employee Data</h2>
+        <div class="form-container">
+            <form action="" method="POST">
+                <div class="input">
+                    <label>Employee Id</label><br>
+                    <input type="number" name="id" value="<?php echo $result['id'] ?>" readOnly>
+                </div>
 
-    </form>
+                <div class="input">
+                    <label>Employee Name</label><br>
+                    <input type="text" name="ename" value="<?php echo $result['ename'] ?>" >
+                </div>
 
+                <div class="input">
+                    <label>Employee Salary</label><br>
+                    <input type="number" name="salary" value="<?php echo $result['salary'] ?>">
+                </div>
+                <div class="input">
+                    <label>Employee designation</label><br>
+                    <input type="text" name="designation" value="<?php echo $result['designation'] ?>" required>
+                </div>
+        
+                <input type="submit" value="Update" id="btn" name="update_btn">
+                <button class="btn"><a href="view.php">Back</a></button>
+                
+            </form>
+
+    <!--############### PHP ####################################-->
     <?php
         if(isset($_POST['update_btn'])){
-            $fname = $_POST['firstname'];
-            $lname = $_POST['lastname'];
-            $age = $_POST['age'];
+            $name = $_POST['ename'];
+            $sal = $_POST['salary'];
+            $desig = $_POST['designation'];
 
-            $updateQuery = "UPDATE student SET firstname='$fname', lastname='$lname', age='$age' WHERE id='$id'";
-            $data = mysqli_query($con, $updateQuery) or die("Query Unsuccessfull");
-            if($data){
-                echo "data updated successfully";
-                header("Location: view.php");
-            }
-            else
-                echo "Some error found!!";
-        }
+            $query = "UPDATE employee SET ename='$name', salary='$sal', designation='$desig' WHERE id='$id' ";
+
+            $updated = mysqli_query($con, $query);
+            if($updated){
     ?>
+                <script> alert("data updated successfully");</script>
+                
+    <?php       header("Location: view.php");
+            }
+            else echo "data not updated";
+        }    
+        //else echo "db not connected";
+    ?>
+
+        </div>
+    </div>
 </body>
 </html>

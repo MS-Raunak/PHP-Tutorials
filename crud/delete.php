@@ -1,15 +1,10 @@
 <?php 
-    include 'dbconnection.php';
-    $id = $_GET['id'];
-    echo "id: $id";
-    $delQuery = "DELETE FROM student WHERE id='$id'";
-    $deleted = mysqli_query($con, $delQuery) or die("Query Unsuccessfull");
+    include "dbconnect.php";
+    $id =  $_GET['id'];
+    //echo $id;
 
-    if($deleted){
-        echo "Data deleted Successfully";
-        header("Location: view.php");
-    }
-    else
-        echo "Something error found!!";
-
-?>
+    $query = "DELETE FROM employee WHERE id='$id'";
+    $data = mysqli_query($con, $query);
+    echo "data deleted with id $data";
+    header("Location: view.php");
+ ?>
