@@ -11,7 +11,12 @@
  class Test {
     const MESSAGE = "This is Constant Varibale";
     //MESSAGE = "NO";//Cant reinittialize
+
+    function m() {
+        echo self::MESSAGE . "<br>"; //accessing const variale inside the class, use self::varName
+    }
  }
 
+ //To accessing constant variable outside the class, use ClassName::VarName
  echo Test::MESSAGE;
 ?>
