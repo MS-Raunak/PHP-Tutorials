@@ -1,7 +1,7 @@
 <?php
 include 'dbconnect.php';
     if ($con) {
-      
+       $id = $_GET['id'];
        $sql = "SELECT * FROM employee WHERE id='$id'";
         $data = mysqli_query($con, $sql) or die("Query Unsuccess");
 
