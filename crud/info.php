@@ -1,16 +1,75 @@
 <?php
 include 'dbconnect.php';
     if ($con) {
+       //echo "OK";
+       //echo $_GET['id'];
        $id = $_GET['id'];
-       $sql = "SELECT * FROM employee WHERE id='$id'";
-        $data = mysqli_query($con, $sql) or die("Query Unsuccess");
+    //    $sql = "SELECT * FROM employee WHERE id='$id'";
+    //     $data = mysqli_query($con, $sql) or die("Query Unsuccess");
 
-        $result = mysqli_fetch_array($data);
-        echo "id: ". $result['id']. "<br>";
-        echo "name: ". $result['ename']. "<br>";
-        echo "salary: ". $result['salary']. "<br>";
-        echo "designation: ". $result['designation']. "<br>";
+    //     $result = mysqli_fetch_array($data);
+    //     echo "id: ". $result['id']. "<br>";
+    //     echo "name: ". $result['ename']. "<br>";
+    //     echo "salary: ". $result['salary']. "<br>";
+    //     echo "designation: ". $result['designation']. "<br>";
     }
 
     
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Data</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="view-container">
+        <h2>Dispaly All Data</h2>
+        <div class="table-container">
+            <table border="1" cellpadding="10" cellspacing="0">
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Employee Salary</th>
+                    <th>Employee Designation</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <?php 
+                    $query = "SELECT * FROM employee WHERE id='$id'";
+                    $data = mysqli_query($con, $query);
+                    $resultset = mysqli_num_rows($data);
+
+                    if ($resultset > 0) {
+                       while($row = mysqli_fetch_array($data)){
+                ?>
+                            <tr>
+                                <td><?php echo $row['id']; ?></td>
+                                <td>
+                                    <form action="" method="POST">
+                                        <a href="info.php?id=<?php echo $row['id']; ?>" name="info_btn"> <?php echo $row['ename'] ?> </a>
+                                    </form>
+                                </td>
+                                
+                                <td><?php echo $row['salary']; ?></td>
+                                <td><?php echo $row['designation']; ?></td>
+                                <td><a href="edit.php?id=<?php echo $row['id']; ?>">update</a></td>
+                                <td><a href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+                            </tr>  
+                <?php                      
+                       }
+                    }
+                    else{
+                ?>
+                        <tr><th style="color:red">No data found</th></tr>  
+                <?php } ?>          
+                    
+            </table>
+        </div>
+        <button class="btn"><a href="index.php">Home</a></button>
+    </div>
+</body>
+</html>

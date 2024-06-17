@@ -8,12 +8,24 @@
     <title>Login Form</title>
 </head>
 <body>
-    <h2>Login Form</h2>
+    <h2 style="text-align: center">Login Form</h2>
     <form action="" method="POST">
-        enter email: <input type="email" name="email"><br> 
-        enter password: <input type="password" name="upassword"><br> 
-       <input type="submit" name="login_btn" value="Login"><br>
-       <button><a href="register.php">Register</a></button>
+    <table border="1" cellspacing="0" style="margin:auto; text-align:center">
+        <tr>
+            <th>Email:</th>
+            <td><input type="email" name="email" placeholder="a@email" required><br></td>
+        </tr> 
+        <tr>
+            <th>Password: </th>
+            <td><input type="password" name="upassword" placeholder="abc#123" required><br></td>
+        </tr>
+        <tr >
+            <th colspan="2">
+            <input type="submit" name="login_btn" value="Login">
+            <button><a href="register.php">Register</a></button>
+            </th>
+        </tr>
+        </table>
     </form>
 
     <!-- PHP CODE -->
