@@ -24,7 +24,12 @@
                 </div>
                 <div class="input">
                     <label>Employee designation</label><br>
-                    <input type="text" name="designation" placeholder="enter designation" required>
+                    <!-- <input type="text" name="designation" placeholder="enter designation" required> -->
+                     <select name="designation[]" id="" multiple>
+                        <option value="Java_developer">Java developer</option>
+                        <option value="Php_developer">Php developer </option>
+                        <option value="Python_developer">Python developer</option>
+                     </select>
                 </div>
         
                 <input type="submit" value="Save" id="btn" name="save_btn">
@@ -37,9 +42,10 @@
         if(isset($_POST['save_btn'])){
             $name = $_POST['ename'];
             $sal = $_POST['salary'];
-            $desig = $_POST['designation'];
+            //$desig[] = $_POST['designation'];
+            $designations = implode(",", $_POST['designation']);
 
-            $query = "INSERT INTO employee(ename, salary, designation) VALUES('$name', '$sal', '$desig')";
+            $query = "INSERT INTO employee(ename, salary, designation) VALUES('$name', '$sal', '$designations')";
 
             $inserted = mysqli_query($con, $query);
             if($inserted){

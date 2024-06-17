@@ -33,7 +33,12 @@
                 ?>
                             <tr>
                                 <td><?php echo $row['id']; ?></td>
-                                <td><?php echo $row['ename']; ?></td>
+                                <td>
+                                    <form action="" method="POST">
+                                        <a href="info.php?id=<?php echo $row['id']; ?>" name="info_btn"> <?php echo $row['ename'] ?> </a>
+                                    </form>
+                                </td>
+                                
                                 <td><?php echo $row['salary']; ?></td>
                                 <td><?php echo $row['designation']; ?></td>
                                 <td><a href="edit.php?id=<?php echo $row['id']; ?>">update</a></td>
@@ -51,6 +56,5 @@
         </div>
         <button class="btn"><a href="index.php">Home</a></button>
     </div>
-
 </body>
 </html>
