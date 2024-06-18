@@ -1,0 +1,75 @@
+<?php include 'connect.php' ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2 style="margin:auto; text-align:center">Blood Donation Registration Form</h2>
+    
+    <form action="idx.php" method="POST">
+    <table border="0" cellspacing="0" style="margin:auto; text-align:center; margin-top: 10px;">
+        <caption>Blood Donor</caption>
+        <tr>
+            <th>Username: </th>
+            <td><input type="text" name="dname" placeholder="donor name" required><br></td>
+        </tr>
+
+        <tr>
+            <th>Email:</th>
+            <td><input type="email" name="email" placeholder="a@gmail.com" required><br></td>
+        </tr> 
+
+        <tr>
+            <th>DOB:</th>
+            <td><input type="text" name="dob" placeholder="12/04/2023" required><br></td>
+        </tr> 
+
+        <tr>
+            <th>Gender:</th>
+            <td>
+                Male<input type="radio" name="gender" value="male">
+                Female<input type="radio" name="gender" value="female"><br>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Blood Group:</th>
+            <td>
+                <select name="bloodgroup" id="">
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>Adress: </th>
+            <td>
+                <textarea name="adress" id="" rows="5"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Mobile:</th>
+            <td>
+                <input type="text" name="mobile" placeholder="0000000000" required>
+                <br></td>
+        </tr> 
+        <tr >
+            <th colspan="2">
+            <input type="submit" name="donate_btn" value="Donate">
+            <button><a href="available.php">Available Blood</a></button>
+            <button><a href="gainer.html">Blood Gainer</a></button>
+            </th>
+        </tr>
+        </table>
+    </form>
+
+</body>
+</html>
