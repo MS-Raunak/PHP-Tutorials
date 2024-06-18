@@ -1,0 +1,59 @@
+Please read all the below line before going to use or make this project
+----------------------------------------------------------------
+
+Required things:
+================
+software : xamp, vs code
+Techs: Php,mysql,bootstrap,css,html
+
+Project-Setup:
+==============
+create database name as -> stories
+create table name as -> tasks
+
+colName        datatype(size)
+task_id         Int
+task_name       Varchar(30)
+task_image      Text
+task_desc       Varchar(250)
+timeStamp       DateTime
+
+
+Project Description
+===================
+This project is all about the CRUD operation but representing as a professional website in which I have created navbar, body, footer etc.
+Basically it is a simple story website, where user can add the story, display the story, update the story and delete the story.
+1-> HomePage
+    -There is a Navbar in header side that I have created using bootstrap
+    -In body, I have created one Slider using Bootstrap carousel
+    -Downside of Slider, Created Cards that is displaying dynamically,
+    -In cards, Displaying the story title, description and one button which will navigate to the stories.php page
+      where user can read full story
+
+2-> Add Page
+    - In this page, created a form which will take the story information and insert to the database.
+3-> Update Page
+    - Displaying all the story where user can choose or select any specific story to update.
+    - Here user can update any story like story title, story description, story image.
+
+4-> Remove Page
+    --Displaying all the story where user can choose or select any specific story to delete.
+    - Here user can delete any story by clicking simple delete button.
+
+
+
+NOTE: Dont use it in your final year Major project but you can use it as a minor project.
+
+TIPS TO USE THIS PROJECT As MAJOR PROJECT IN YOUR FINAL YEAR
+============================================================
+You Can enhance the feature of this project as:
+- Add login and register fetures
+- Register/Login as Admin/User
+- Login as facebook, google
+- Send email verification link
+- USer can only logged in when email is verified
+- Only admin has access to add, remove, update the story
+- User can view and can give the feedback to the story.
+- Add story like button
+- when any user like the story like count is increase.
+- Create user profile section where display all the information about user including dp,name etc.
